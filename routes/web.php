@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\LoggerController;
+use App\Http\Controllers\MemcachedController;
+use App\Http\Controllers\RedisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,4 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/logger', [LoggerController::class, 'index'])->name('logger');
+Route::get('logger', [LoggerController::class, 'index'])->name('logger');
+Route::get('memcached', [MemcachedController::class, 'index'])->name('memcached');
+Route::get('redis', [RedisController::class, 'index'])->name('redis');
