@@ -1,0 +1,7 @@
+--CREATE USER slave_read_user@'%' IDENTIFIED WITH mysql_native_password USING '12345678';
+--GRANT USAGE ON *.* TO 'slave_read_user'@'%' IDENTIFIED BY '12345678';
+CREATE USER 'slave_read_user'@'%' IDENTIFIED BY '12345678';
+GRANT ALL ON *.* TO 'slave_read_user'@'%' IDENTIFIED BY '12345678';
+--GRANT REPLICATION SLAVE ON *.* TO 'slave_read_user'@'%';
+GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'slave_read_user'@'%' IDENTIFIED BY '12345678';
+FLUSH PRIVILEGES;
